@@ -1,0 +1,22 @@
+<nav class="bg-white shadow">
+  <div class="mx-auto px-4 py-4 max-w-7xl sm:px-6 lg:px-8">
+    <div class="flex justify-between">
+      <div class="flex space-x-4">
+        <%= link_to "OffersMobile(TM)", root_path, class: "text-gray-800 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" %>
+      </div>
+
+      <div class="flex space-x-4">
+        <% if signed_in? %>
+          <ul class="flex items-center space-x-4">
+            <li><%= link_to "Sign out", signout_path, class: "text-gray-800 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" , method: :delete %></li> 
+          </ul>
+        <% else %>
+          <ul class="flex items-center space-x-4">
+            <li><%= link_to "Sign in", signin_path, class: "text-gray-800 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium" %></li> 
+            <li><%= link_to "Sign up", signup_path, class: "text-white bg-indigo-500 hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium" %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

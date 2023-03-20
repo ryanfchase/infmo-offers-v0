@@ -1,0 +1,20 @@
+<div id="summary-container">
+  <div class="bg-indigo-500 py-3 px-6 flex justify-center items-center rounded-t-lg">
+    <%= image_tag 'icons/person.svg', class: 'w-8 -left-4 relative h-8 fill-current text-gray-500' %>
+    <h2 class="text-white text-2xl font-bold">Welcome <%= current_user.first_name %></h2>
+  </div>
+
+  <div class="bg-white shadow-md p-6 mb-6 rounded-b-lg">
+    <ul>
+      <li><strong>Number of Available Offers:</strong> <%= @offers.count - current_user.offers.count %></li>
+      <li><strong>Number of Offers Claimed:</strong> <%= current_user.offers.count %></li>
+      <br/>
+      <li>Age: </strong> <%= current_user.age %></li>
+      <li>Days until birthday:</strong> <%= current_user.days_until_birthday %></li>
+    </ul>
+  </div>
+</div>
+
+<%# current_user.available_offers_count
+current_user.offers_claimed_count
+number_to_currency(current_user.balance) %>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PrequelInfmo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", media: 'all', "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application.tailwind", media: 'all' %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div id='container' class="min-h-screen bg-gray-100">
+      <%= render 'layouts/header' %>
+          <%# flash any messages %>
+          <div>
+            <% flash.each do |message_type, message| %>
+              <div class="<%= flash_class(message_type)%> p-1 text-white text-center font-medium mb-4">
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+      <div class="flex items-center justify-center flex-1">
+        <div class="max-w-md w-full space-y-8 mt-8">
+          <%# page content %>
+          <%= yield %>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

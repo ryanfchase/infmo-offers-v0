@@ -1,0 +1,53 @@
+<div class="bg-white rounded-lg shadow-lg p-8">
+  <h1 class="text-3xl font-bold mb-6">Sign up</h1>
+
+  <%= render 'shared/error_messages' %>
+
+  <%= form_with(model: @user, local: true) do |f| %>
+    <div class="mb-4">
+      <%= f.label :user_name, class: "block text-gray-700 font-bold mb-2" %>
+      <%= f.text_field :user_name, class: "w-full border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :first_name, class: "block text-gray-700 font-bold mb-2" %>
+      <%= f.text_field :first_name, class: "w-full border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :last_name, class: "block text-gray-700 font-bold mb-2" %>
+      <%= f.text_field :last_name, class: "w-full border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :birth_date, class: "block text-gray-700 font-bold mb-2" %>
+      <%= f.date_field :birthdate, class: "w-full border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :gender, class: "block text-gray-700 font-bold mb-2" %>
+      <select name="user[gender]" id="user_gender" class="w-full border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        <option value="">Select gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="nonbinary">Non-binary</option>
+        <option value="other">Other</option>
+      </select>
+
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :password, class: "block text-gray-700 font-bold mb-2" %>
+      <%= f.password_field :password, class: "w-full border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :password_confirmation, "Confirmation", class: "block text-gray-700 font-bold mb-2" %>
+      <%= f.password_field :password_confirmation, class: "w-full border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="flex items-center justify-between">
+      <%= f.submit "Create my account", class: "bg-blue-500 text-white font-bold py-2 px-4 rounded-md btn-sm" %>
+    </div>
+  <% end %>
+</div>

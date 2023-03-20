@@ -1,0 +1,32 @@
+
+<%= render 'shared/summary' %>
+<h1 class="text-3xl font-bold mb-4">All Offers</h1>
+<%= button_tag "Filter eligible claims", id: "eligible-filter-toggle", class: "bg-gray-300 text-gray-500 font-bold py-2 px-4 rounded-md" %>
+
+<ul class="space-y-4">
+  <% @offers.each do |offer| %>
+  <% offer_already_claimed = current_user.user_offers.exists?(offer_id: offer.id) %>
+    <li class="bg-white shadow-md rounded-lg p-6">
+      <%= link_to offer do %>
+        <h2 class="text-2xl font-bold mb-2 hover:text-blue-500 hover:underline cursor-pointer">
+          <%= offer.description %>
+        </h2>
+      <% end %>
+      <div class="flex flex-col justify-between">
+        <div>
+          <p><strong>Target Age Range:</strong> <%= offer.target_age_min %> - <%= offer.target_age_max %></p>
+          <p><strong>Target Gender:</strong> <%= offer.target_gender.capitalize %></p>
+        </div>
+        <div class="my-2">
+          <% if offer_already_claimed %>
+            <div class="inline-block bg-gray-300 text-gray-500 font-bold py-2 px-4 rounded-md opacity-50 cursor-not-allowed">
+              Claimed
+            </div>
+          <% else %>
+            <%= link_to "Claim", offer, action: "show", class: "bg-blue-500 text-white font-bold py-2 px-4 rounded-md" %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

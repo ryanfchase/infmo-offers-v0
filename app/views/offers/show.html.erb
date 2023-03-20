@@ -1,0 +1,27 @@
+<% offer_already_claimed = current_user.user_offers.exists?(offer_id: @offer.id) %>
+
+<div class="flex flex-row space-around justify-center justify-between align-center">
+  <h3 class="text-xl font-bold flex items-center">Confirm This Claim?</h3>
+</div>
+
+<div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+  <div class="py-2 mb-4">
+    <h1 class="text-3xl font-bold text-gray-800"><%= @offer.description %></h1>
+  </div>
+  <p class="text-lg text-gray-700 mb-4">Target Age: <%= @offer.target_age_min %> - <%= @offer.target_age_max %></p>
+  <p class="text-lg text-gray-700 mb-4">Target Gender: <%= @offer.target_gender %></p>
+  <p class="text-gray-700 mb-4">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer venenatis ac tellus eu posuere. Nam ultricies tristique ipsum, vel eleifend orci accumsan sit amet. Vivamus ac lacus non erat sodales cursus. Quisque lobortis massa sit amet efficitur rhoncus. Suspendisse ullamcorper libero eu quam suscipit rhoncus. Nam sollicitudin magna velit, in elementum sapien luctus ac. Donec et tortor non lacus blandit rhoncus. Morbi a convallis felis, sed vulputate sem. Donec scelerisque erat vel justo congue, sed bibendum quam auctor.
+  </p>
+  <div class="flex items-center justify-between">
+    <% if offer_already_claimed %>
+      <%# <%= link_to "Claimed", '#', class: "bg-gray-300 text-gray-500 font-bold py-2 px-4 rounded-md opacity-50 cursor-not-allowed", disabled: true %>
+      <div class="inline-block bg-gray-300 text-gray-500 font-bold py-2 px-4 rounded-md opacity-50 cursor-not-allowed">
+        Claimed
+      </div>
+    <% else %>
+      <%= button_to "Claim", claim_offer_path(@offer), action: "new", class: "bg-blue-500 text-white font-bold py-2 px-4 rounded-md" %>
+    <% end %>
+    <%= link_to "Go Back", root_path, class: "bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md" %>
+  </div>
+</div>
