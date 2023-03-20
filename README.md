@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Getting Started...
+1. run `rails db:seed`
+2. open one shell and run `rails s`
+3. open another shell and run `rails tailwindcss:watch`
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+OR run `./bin/dev` if `foreman` is installed
